@@ -1,0 +1,21 @@
+button {
+    background-color: #7f8a9b;
+    border-radius: 50%;
+    border: 3px solid #7f8a9b outset;
+    color: #DDF0C2;
+    padding: 30px;
+    margin: 20px;
+    text-align: center; 
+    box-shadow: 1px 1px 4px 2px  rgba(20, 20, 20, 0.9);
+    transition: all .6s ease;
+    font-size: 0.6em;
+    
+    &:hover {
+        background-color: #DDF0C2;
+        color: #c6c653;
+        box-shadow: 1px 1px 4px 2px  rgba(20, 20, 20, 0.9), 0 0 0 10px #c6c653;
+        cursor: pointer;
+    }
+
+    &:focus { outline: none; }
+}

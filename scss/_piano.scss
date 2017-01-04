@@ -1,0 +1,66 @@
+.piano {
+    border-radius: 10%;
+    background-image: url("../img/wood-bg.jpg");
+    background-size: 55%;
+    box-shadow: 5px 10px 10px 5px  #101214;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+    margin-top: 100px;
+    width: 100%;
+    height: 300px;
+    @include for-mobile-only {
+        flex-direction: column;
+        margin-top: 30px;
+        min-height: 400px;
+    }
+    @include for-tablet-only {
+        // border: 10px solid black;
+    }
+}
+
+.note {
+    flex: 0 1 15%;
+    height: 110%;
+    text-align: center;
+    margin: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    filter: brightness(40%);
+    transition: all 0.2s;
+    @include for-mobile-only {
+        width: 110%;
+    }
+    
+    &.playing {
+        filter: brightness(100%);
+        box-shadow: 1px 1px 2px 3px  rgba(0, 0, 0, 0.9), inset 0 0 4px 3px #1f1f1f;
+        transform: translateY(-10px) ;
+            animation: vibrate .05s infinite linear;
+
+        @include for-mobile-only {
+            box-shadow: 1px 1px 1px 2px  rgba(0, 0, 0, 0.9), inset 0 0 1px 1px #1f1f1f;
+            animation: vibrate-mobile .05s infinite linear;
+        }
+    }
+
+}
+
+
+
+
+@mixin note-colors($color, $color-dark) {
+    background-color: $color;
+    box-shadow:  1px 1px 2px 3px  rgba(0, 0, 0, 0.9), inset 0 -5px 5px 5px  $color-dark;
+    @include for-mobile-only {
+        box-shadow:  1px 1px 1px 2px  rgba(0, 0, 0, 0.9), inset 0 -3px 3px 3px  $color-dark;
+    }
+}
+
+.note1 { @include note-colors($color1, darken($color1, 40%)) }
+.note2 { @include note-colors($color2, darken($color2, 40%)) }
+.note3 { @include note-colors($color3, darken($color3, 40%)) }
+.note4 { @include note-colors($color4, darken($color4, 40%)) }
+.note5 { @include note-colors($color5, darken($color5, 40%)) }
+.note6 { @include note-colors($color6, darken($color6, 40%)) }
+.note7 { @include note-colors($color7, darken($color7, 40%)) }

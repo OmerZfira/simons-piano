@@ -1,0 +1,45 @@
+
+@mixin for-tablet-only {
+  @media (max-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+
+@mixin for-mobile-only {
+  @media (max-width: $mobile-breakpoint) {
+    @content;
+  }
+}
+
+body {
+  @include for-tablet-only {
+    font-size: 0.7em;
+  }
+
+  @include for-mobile-only {
+    font-size: 0.5em;
+  }
+  
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px;
+  padding: 30px;
+  height: 100%;
+}
+
+.score-canvas {
+  position: absolute;
+  z-index: 99;
+  pointer-events: none;
+  opacity: 0;
+
+  &.shown-canvas {
+
+    animation: fade-in-out-canvas 1.4s 1;
+  }
+}
